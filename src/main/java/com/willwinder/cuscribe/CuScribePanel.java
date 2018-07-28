@@ -51,10 +51,10 @@ public class CuScribePanel extends JPanel {
 
     loadGcodeFileButton.addActionListener((al) -> openFileChooser());
 
-    startCuttingButton = new JButton(backend.getPauseResumeText());
+    startCuttingButton = new JButton(send);
     startCuttingButton.addActionListener((al) -> {
       try {
-        backend.pauseResume();
+        backend.send();
       } catch (Exception e) {
         e.printStackTrace();
       }
