@@ -30,18 +30,20 @@ public class App
     final JFrame connectionFrame = connectionFrame(backend);
 
     // Create the main frame.
-    final JFrame main = mainFrameB(backend);
+    final JFrame mainA = mainFrameA(backend);
+    final JFrame mainB = mainFrameB(backend);
 
     backend.addUGSEventListener(evt -> {
-      if (evt.isControllerStatusEvent()) {
+      if (evt.isStateChangeEvent()) {
         boolean connected = evt.getControlState() != UGSEvent.ControlState.COMM_DISCONNECTED;
         connectionFrame.setVisible(!connected);
-        main.setVisible(connected);
+        mainA.setVisible(connected);
+        mainB.setVisible(connected);
       }
     });
 
-    //connectionFrame.setVisible(true);
-    main.setVisible(true);
+    connectionFrame.setVisible(true);
+    //main.setVisible(true);
   }
 
   private static JFrame connectionFrame(BackendAPI backend) {

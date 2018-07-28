@@ -32,7 +32,8 @@ public class ConnectionPanel extends JPanel {
   private final JComboBox portCombo = new JComboBox();
 
   private final JButton refreshButton = new JButton(new javax.swing.ImageIcon(getClass().getResource("/resources/icons/refresh.gif")));
-  private final JButton openCloseButton = new JButton(Localization.getString("mainWindow.ui.connect"));
+  private final String open = Localization.getString("mainWindow.ui.connect");
+  private final JButton openCloseButton = new JButton(open);
 
   private final BackendAPI backend;
 
@@ -62,7 +63,7 @@ public class ConnectionPanel extends JPanel {
   }
 
   private void opencloseButtonActionPerformed(java.awt.event.ActionEvent evt) {
-    if (this.openCloseButton.getText().equalsIgnoreCase(Localization.getString("open"))) {
+    if (this.openCloseButton.getText().equalsIgnoreCase(open)) {
       String port = String.valueOf(portCombo.getSelectedItem());
 
       try {
